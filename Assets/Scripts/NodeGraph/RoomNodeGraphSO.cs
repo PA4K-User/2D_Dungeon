@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using UnityEngine;
 
-[CreateAssetMenu(fileName = "RoomNodeGraph", menuName = "Scriptable Object/Dungeon/Room Node Graph")]
+[CreateAssetMenu(fileName = "RoomNodeGraph", menuName = "Scriptable Objects/Dungeon/Room Node Graph")]
 public class RoomNodeGraphSO : ScriptableObject
 {
     [HideInInspector] public RoomNodeTypeListSO roomNodeTypeList;
@@ -25,6 +25,18 @@ public class RoomNodeGraphSO : ScriptableObject
         }
     }
 
+    public RoomNodeSO GetRoomNode(RoomNodeTypeSO roomNodeType)
+    {
+        foreach (RoomNodeSO node in roomNodeList)
+        {
+            if(node.roomNodeType == roomNodeType)
+            {
+                return node;
+            }
+        }
+        return null;
+    }
+
     public RoomNodeSO GetRoomNode(string roomNodeID)
     {
         if(roomNodeDictionary.TryGetValue(roomNodeID, out RoomNodeSO roomNode))
@@ -33,6 +45,14 @@ public class RoomNodeGraphSO : ScriptableObject
         }
 
         return null;
+    }
+
+    public IEnumerable<RoomNodeSO> GetchildRoomNodes(RoomNodeSO parentRoomNode)
+    {
+        foreach (string childNodeID in parentRoomNode.childRoomNodeIDList)
+        {
+            yield return GetRoomNode(childNodeID);
+        }
     }
 
     #region Editor code
