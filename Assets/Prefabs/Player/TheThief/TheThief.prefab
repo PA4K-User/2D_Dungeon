@@ -123,6 +123,10 @@ PrefabInstance:
       propertyPath: m_LocalPosition.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 7349742919268459861, guid: 3b5a5d30123d3a14c863c56c860013ab, type: 3}
+      propertyPath: movementDetails
+      value: 
+      objectReference: {fileID: 11400000, guid: f6b511c543adfeb48bc572999df8aed9, type: 2}
     - target: {fileID: 7839327382787146709, guid: 3b5a5d30123d3a14c863c56c860013ab, type: 3}
       propertyPath: m_SortingOrder
       value: 5
