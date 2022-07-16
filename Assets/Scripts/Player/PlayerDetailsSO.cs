@@ -8,9 +8,7 @@ public class PlayerDetailsSO : ScriptableObject
     [Space(10)]
     [Header("PLAYER BASE DETAILS")]
     public string playerCharacterName;
-
     public GameObject playerPrefab;
-
     public RuntimeAnimatorController runtimeAnimatorController;
 
     [Space(10)]
@@ -18,9 +16,13 @@ public class PlayerDetailsSO : ScriptableObject
     public int playerHealthAmount;
 
     [Space(10)]
+    [Header("WEAPON")]
+    public WeaponDetailsSO startingWeapon;
+    public List<WeaponDetailsSO> startingWeaponList;
+
+    [Space(10)]
     [Header("OTHER")]
     public Sprite playerMinimapIcon;
-
     public Sprite playerHandSprite;
 
     #region Validation
@@ -30,9 +32,11 @@ public class PlayerDetailsSO : ScriptableObject
         HelperUtilities.ValidateCheckEmptyString(this, nameof(playerCharacterName), playerCharacterName);
         HelperUtilities.ValidateCheckNullValue(this, nameof(playerPrefab), playerPrefab);
         HelperUtilities.ValidateCheckPositiveValue(this, nameof(playerHealthAmount), playerHealthAmount, false);
+        HelperUtilities.ValidateCheckNullValue(this, nameof(startingWeapon), startingWeapon);
         HelperUtilities.ValidateCheckNullValue(this, nameof(playerMinimapIcon), playerMinimapIcon);
         HelperUtilities.ValidateCheckNullValue(this, nameof(playerHandSprite), playerHandSprite);
         HelperUtilities.ValidateCheckNullValue(this, nameof(runtimeAnimatorController), runtimeAnimatorController);
+        HelperUtilities.ValidateCheckEnumerableValues(this, nameof(startingWeaponList), startingWeaponList);
     }
 #endif
     #endregion

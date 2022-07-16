@@ -18,15 +18,9 @@ public class GameResources : MonoBehaviour
             return instance;
         }                    
     }
-
-    #region Header DUNGEON
+    
     [Space(10)]
-    [Header("DUNGEON")]
-    #endregion
-    #region Tooltip
-    [Tooltip("Populate with the dungeon RoomNodeTypeListSO")]
-    #endregion
-
+    [Header("DUNGEON")]      
     public RoomNodeTypeListSO roomNodeTypeList;
 
     [Space(10)]
@@ -37,10 +31,12 @@ public class GameResources : MonoBehaviour
     [Header("MATERIALS")]
     [Tooltip("Dimmed Material")]
     public Material dimmedMaterial;
-
     public Material litMaterial;
-
     public Shader variableLitShader;
+
+    [Space(10)]
+    [Header("UI")]
+    public GameObject ammoIconPrefab;
 
     #region Validation
 #if UNITY_EDITOR
@@ -51,6 +47,7 @@ public class GameResources : MonoBehaviour
         HelperUtilities.ValidateCheckNullValue(this, nameof(litMaterial), litMaterial);
         HelperUtilities.ValidateCheckNullValue(this, nameof(dimmedMaterial), dimmedMaterial);
         HelperUtilities.ValidateCheckNullValue(this, nameof(variableLitShader), variableLitShader);
+        HelperUtilities.ValidateCheckNullValue(this, nameof(ammoIconPrefab), ammoIconPrefab);
     }
 #endif
     #endregion
