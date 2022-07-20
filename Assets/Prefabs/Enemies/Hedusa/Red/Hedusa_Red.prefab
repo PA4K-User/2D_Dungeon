@@ -11,6 +11,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Hedusa_Red
       objectReference: {fileID: 0}
+    - target: {fileID: 4578281723684526281, guid: 9f52817f4f92453418986caf7006c422, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 19b6ff9fbadc74e479b63068d33eb245, type: 2}
     - target: {fileID: 6199640254535975400, guid: 9f52817f4f92453418986caf7006c422, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.x
       value: 1.875

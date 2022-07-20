@@ -67,6 +67,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: Mudrock_Brown
       objectReference: {fileID: 0}
+    - target: {fileID: 4578281723684526281, guid: 9f52817f4f92453418986caf7006c422, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: 0f372b3c644e5ce4a9d95f7f7f25d99a, type: 2}
     - target: {fileID: 6199640254535975400, guid: 9f52817f4f92453418986caf7006c422, type: 3}
       propertyPath: m_SpriteTilingProperty.oldSize.y
       value: 2

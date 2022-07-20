@@ -67,6 +67,10 @@ PrefabInstance:
       propertyPath: m_Name
       value: SlimeBlock_Blue
       objectReference: {fileID: 0}
+    - target: {fileID: 4578281723684526281, guid: 9f52817f4f92453418986caf7006c422, type: 3}
+      propertyPath: m_Controller
+      value: 
+      objectReference: {fileID: 9100000, guid: a0ee566a387dcf744a5564ef5baa059e, type: 2}
     - target: {fileID: 6199640254535975400, guid: 9f52817f4f92453418986caf7006c422, type: 3}
       propertyPath: m_Points.m_Paths.Array.data[0].Array.data[0].x
       value: -0.34902
