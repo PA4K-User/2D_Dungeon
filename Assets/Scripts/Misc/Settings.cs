@@ -35,6 +35,8 @@ public static class Settings
     public static int rollDown = Animator.StringToHash("rollDown");
     public static float baseSpeedForPlayerAnimations = 8f;
 
+    public static float baseSpeedForEnemyAnimations = 3f;
+
     public static int open = Animator.StringToHash("open");
     public static int close = Animator.StringToHash("close");
     #endregion
@@ -51,6 +53,7 @@ public static class Settings
     #region ASTAR PATHFIDING PARAMETERS
     public const int defaultAStarMovementPenalty = 40;
     public const int preferredPathAStarMovementPenalty = 1;
+    public const int targetFrameRateToSpreadPathfidingOver = 60;
     public const float playerMoveDistanceToRebuildPath = 3f;
     public const float enemyPathRebuildCooldown = 2f;
     #endregion

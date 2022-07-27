@@ -9,6 +9,18 @@ public class EnemyDetailsSO : ScriptableObject
     public GameObject enemyPrefab;
     public float chaseDistance = 50f;
 
+    [Space(10)]
+    [Header("ENEMY MATERIAL")]
+    public Material enemyStandardMaterial;
+
+    [Space(10)]
+    [Header("ENEMY MATERIALIZE SETTINGS")]
+    public float enemyMaterializeTime;
+    public Shader enemyMaterializeShader;
+
+    [ColorUsage(true, true)]
+    public Color enemyMaterializeColor;
+
     #region Validation
 #if UNITY_EDITOR
     private void OnValidate()
@@ -16,6 +28,9 @@ public class EnemyDetailsSO : ScriptableObject
         HelperUtilities.ValidateCheckEmptyString(this, nameof(enemyName), enemyName);
         HelperUtilities.ValidateCheckNullValue(this, nameof(enemyPrefab), enemyPrefab);
         HelperUtilities.ValidateCheckPositiveValue(this, nameof(chaseDistance), chaseDistance, false);
+        HelperUtilities.ValidateCheckNullValue(this, nameof(enemyStandardMaterial), enemyStandardMaterial);
+        HelperUtilities.ValidateCheckPositiveValue(this, nameof(enemyMaterializeTime), enemyMaterializeTime, true);
+        HelperUtilities.ValidateCheckNullValue(this, nameof(enemyMaterializeShader), enemyMaterializeShader);
     }
 #endif
     #endregion
