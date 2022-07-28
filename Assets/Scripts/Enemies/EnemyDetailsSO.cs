@@ -21,6 +21,15 @@ public class EnemyDetailsSO : ScriptableObject
     [ColorUsage(true, true)]
     public Color enemyMaterializeColor;
 
+    [Space(10)]
+    [Header("ENEMY WEAPON SETTINGS")]
+    public WeaponDetailsSO enemyWeapon;
+    public float firingIntervalMin = 0.1f;
+    public float firingIntervalMax = 1f;
+    public float firingDurationMin = 1f;
+    public float firingDurationMax = 2f;
+    public bool firingLineOfSightRequired;
+
     #region Validation
 #if UNITY_EDITOR
     private void OnValidate()
@@ -31,6 +40,10 @@ public class EnemyDetailsSO : ScriptableObject
         HelperUtilities.ValidateCheckNullValue(this, nameof(enemyStandardMaterial), enemyStandardMaterial);
         HelperUtilities.ValidateCheckPositiveValue(this, nameof(enemyMaterializeTime), enemyMaterializeTime, true);
         HelperUtilities.ValidateCheckNullValue(this, nameof(enemyMaterializeShader), enemyMaterializeShader);
+        HelperUtilities.ValidateCheckPositionRange(this, nameof(firingIntervalMin), firingIntervalMin, nameof(firingIntervalMax),
+            firingIntervalMax, false);
+        HelperUtilities.ValidateCheckPositionRange(this, nameof(firingDurationMin), firingDurationMin, nameof(firingDurationMax),
+            firingDurationMax, false);
     }
 #endif
     #endregion

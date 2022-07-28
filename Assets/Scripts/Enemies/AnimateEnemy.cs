@@ -17,6 +17,8 @@ public class AnimateEnemy : MonoBehaviour
         enemy.movementToPositionEvent.OnMovementToPosition += MovementToPositionEvent_OnMovementToPosition;
 
         enemy.idleEvent.OnIdle += IdleEvent_OnIdle;
+
+        enemy.aimWeaponEvent.OnWeaponAim += AimWeaponEvent_OnWeaponAim;
     }
 
     private void OnDisable()
@@ -24,19 +26,18 @@ public class AnimateEnemy : MonoBehaviour
         enemy.movementToPositionEvent.OnMovementToPosition -= MovementToPositionEvent_OnMovementToPosition;
 
         enemy.idleEvent.OnIdle -= IdleEvent_OnIdle;
-    }  
+
+        enemy.aimWeaponEvent.OnWeaponAim -= AimWeaponEvent_OnWeaponAim;
+    }
+
+    private void AimWeaponEvent_OnWeaponAim(AimWeaponEvent aimWeaponEvent, AimWeaponEventArgs aimWeaponEventArgs)
+    {
+        InitialiseAimAnimationParameters();
+        SetAimWeaponAnimationParematers(aimWeaponEventArgs.aimdirection);
+    }
 
     private void MovementToPositionEvent_OnMovementToPosition(MovementToPositionEvent movementToPositionEvent, MovementToPositionArgs movementToPositionArgs)
-    {
-        if(enemy.transform.position.x < GameManager.Instance.GetPlayer().transform.position.x)
-        {
-            SetAimWeaponAnimationParematers(AimDirection.Right);
-        }
-        else
-        {
-            SetAimWeaponAnimationParematers(AimDirection.Left);
-        }
-
+    {       
         SetMovementAnimationParameters();
     }  
 
@@ -45,7 +46,7 @@ public class AnimateEnemy : MonoBehaviour
         SetIdleAnimationParameters();
     }   
 
-    private void InitialiseAimAnimationParameterss()
+    private void InitialiseAimAnimationParameters()
     {
         enemy.animator.SetBool(Settings.aimUp, false);
         enemy.animator.SetBool(Settings.aimUpRight, false);
@@ -67,9 +68,7 @@ public class AnimateEnemy : MonoBehaviour
     }
 
     private void SetAimWeaponAnimationParematers(AimDirection aimDirection)
-    {
-        InitialiseAimAnimationParameterss();
-
+    {       
         switch (aimDirection)
         {
             case AimDirection.Up:
