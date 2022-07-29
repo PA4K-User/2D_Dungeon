@@ -48,6 +48,7 @@ public class GameResources : MonoBehaviour
 
     [Space(10)]
     [Header("UI")]
+    public GameObject heartPrefab;
     public GameObject ammoIconPrefab;
 
     #region Validation

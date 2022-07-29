@@ -16,6 +16,8 @@ MonoBehaviour:
   playerPrefab: {fileID: 9041264436231309911, guid: 70f7aa54f3394524b9f4d033bb6b01c3, type: 3}
   runtimeAnimatorController: {fileID: 9100000, guid: e52ed9234b488b0449570da9e57ce474, type: 2}
   playerHealthAmount: 100
+  isImmuneAfterHit: 1
+  hitImmunityTime: 3
   startingWeapon: {fileID: 11400000, guid: 781098ee9a13e194da75cb24a2d1f0f6, type: 2}
   startingWeaponList:
   - {fileID: 11400000, guid: 781098ee9a13e194da75cb24a2d1f0f6, type: 2}

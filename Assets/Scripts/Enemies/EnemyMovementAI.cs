@@ -114,7 +114,7 @@ public class EnemyMovementAI : MonoBehaviour
 
     public void SetUpdateFramNumber(int updateFramNumber)
     {
-        this.updateFrameNumber = updateFrameNumber;
+        this.updateFrameNumber = updateFramNumber;
     }
 
     private Vector3Int GetNearestNonObstaclePlayerPosition(Room currentRoom)

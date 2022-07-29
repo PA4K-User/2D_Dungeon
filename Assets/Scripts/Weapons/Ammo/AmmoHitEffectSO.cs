@@ -28,7 +28,7 @@ public class AmmoHitEffectSO : ScriptableObject
         HelperUtilities.ValidateCheckPositiveValue(this, nameof(startParticleSpeed), startParticleSpeed, false);
         HelperUtilities.ValidateCheckPositiveValue(this, nameof(startLifeTime), startLifeTime, false);
         HelperUtilities.ValidateCheckPositiveValue(this, nameof(maxParticleNumber), maxParticleNumber, false);
-        HelperUtilities.ValidateCheckPositiveValue(this, nameof(emissionRate), emissionRate, false);
+        HelperUtilities.ValidateCheckPositiveValue(this, nameof(emissionRate), emissionRate, true);
         HelperUtilities.ValidateCheckPositiveValue(this, nameof(burstParticleNumber), burstParticleNumber, false);
         HelperUtilities.ValidateCheckNullValue(this, nameof(ammoHitEffectPrefab), ammoHitEffectPrefab);
     }

@@ -259,9 +259,14 @@ public class InstantiatedRoom : MonoBehaviour
         collisionTilemap.gameObject.GetComponent<TilemapRenderer>().enabled = false;
     }
 
-    private void DisableRoomCollider()
+    public void DisableRoomCollider()
     {
         boxCollider2D.enabled = false;
+    }
+
+    public void EnableRoomCollider()
+    {
+        boxCollider2D.enabled = true;
     }
 
     public void LockDoors()
@@ -276,5 +281,23 @@ public class InstantiatedRoom : MonoBehaviour
         DisableRoomCollider();
     }
 
-   
+    public void UnlockDoors(float doorUnlockDelay)
+    {
+        StartCoroutine(UnlockDoorsRoutine(doorUnlockDelay));
+    }
+
+    private IEnumerator UnlockDoorsRoutine(float doorUnlockDelay)
+    {
+        if(doorUnlockDelay > 0)
+            yield return new WaitForSeconds(doorUnlockDelay);
+
+        Door[] doorArray = GetComponentsInChildren<Door>();
+
+        foreach (Door door in doorArray)
+        {
+            door.UnlockDoor();
+        }
+
+        EnableRoomCollider();
+    }
 }

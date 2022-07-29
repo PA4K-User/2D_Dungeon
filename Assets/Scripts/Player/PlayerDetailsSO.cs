@@ -14,6 +14,8 @@ public class PlayerDetailsSO : ScriptableObject
     [Space(10)]
     [Header("HEALTH")]
     public int playerHealthAmount;
+    public bool isImmuneAfterHit = false;
+    public float hitImmunityTime;
 
     [Space(10)]
     [Header("WEAPON")]
@@ -37,6 +39,11 @@ public class PlayerDetailsSO : ScriptableObject
         HelperUtilities.ValidateCheckNullValue(this, nameof(playerHandSprite), playerHandSprite);
         HelperUtilities.ValidateCheckNullValue(this, nameof(runtimeAnimatorController), runtimeAnimatorController);
         HelperUtilities.ValidateCheckEnumerableValues(this, nameof(startingWeaponList), startingWeaponList);
+
+        if (isImmuneAfterHit)
+        {
+            HelperUtilities.ValidateCheckPositiveValue(this, nameof(hitImmunityTime), hitImmunityTime, false);
+        }
     }
 #endif
     #endregion
